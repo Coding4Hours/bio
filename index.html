@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins" />
+  <link re="stylesheet" hef="style.css" />
+  <link href='https://itsaaldon4.files.wordpress.com/2023/07/cropped-logo-1.png' type='image/x-icon' rel='icon' />
+  <meta name="description" content="Click to view nee's bio" />
+  <meta name="theme-color" content="black">
+  <title>fowntain</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    button {
+      background-color: transparent;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-decoration: none;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    button:hover {
+      text-decoration: none;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .visible {
+      display: block;
+    }
+
+    #progressContainer {
+      width: 100%;
+      max-width: 400px;
+      height: 8px;
+      background-color: #555;
+      border-radius: 10px;
+      margin: 0 auto;
+      overflow: hidden;
+      margin-top: 15px;
+    }
+
+    #progressBar {
+      width: 0;
+      height: 100%;
+      background-color: #ffffff;
+      border-radius: 10px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <button id="enterButton" class="hidden" style="font-size: 36px;">Click Here</button>
+
+  <audio id="audioPlayer" src="audio.mp3" loop></audio>
+
+  <div id="mainContent" class="hidden">
+    <div class="center">
+      <!DOCTYPE html>
+      <html lang="en">
+
+      <head>
+        <link rel="stylesheet" href="style.css" />
+        <script src="snow.js"></script>
+        <style>
+          .social-icons {
+            color: #e4e9ff;
+          }
+        </style>
+      </head>
+
+      <body>
+        <div class="center">
+          <div class="container blur">
+            <img class="pfp-image"
+              src="https://cdn.discordapp.com/avatars/1140020966651613265/01c274df03f8ca05f875a1b174eebb80.webp?size=1024"
+              alt="pfp" />
+            <p class="username">@neealdon3</p>
+            <p class="bio-text">Hello. My name is neealdon3, and I'm a developer.<br> I have knowledge across frontend development.<br><br>Notables:<br>Founder of Eternal Network<br>Created Many Successful Websites<br>Founder of Unblocking It (A cheats discord server.)</p>
+            <img src="https://discord.c99.nl/widget/theme-4/563863335507066911.png" alt="Discord Widget" />
+            <br>
+            <a target="_blank" href="https://neealdon3.github.io">My Site</a>  
+            <a target="_blank" href="https://discord.com/users/1140020966651613265"><i class="fa-brands fa-discord social-icons"></i></a>
+            <a target="_blank" href="https://github.com/neealdon3"><i class="fa-brands fa-github social-icons"></i></a>
+            <a target="_blank" href="https://www.youtube.com/@unblockingit"><i class="fa-brands fa-youtube social-icons"></i></a>
+            <a target="_blank" href="https://eternal-network.github.io/Eternal-hub/">Eternal Hub</a>
+            <div id="musicPlayer" class="visible">
+              <div id="musicControls">
+                <!-- Play/Pause button removed -->
+              </div>
+              <div id="musicStatus"></div>
+              <div id="progressContainer">
+                <div id="progressBar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </body>
+
+      </html>
+    </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var enterButton = document.getElementById('enterButton');
+      var mainContent = document.getElementById('mainContent');
+      var audioPlayer = document.getElementById('audioPlayer');
+      var musicStatus = document.getElementById('musicStatus');
+      var progressBar = document.getElementById('progressBar');
+
+      var progressBarInterval; // Variable to store the interval reference
+
+      // Function to update the progress bar smoothly
+      function updateProgressBar() {
+        var currentTime = audioPlayer.currentTime;
+        var duration = audioPlayer.duration;
+        var progress = (currentTime / duration) * 100;
+        progressBar.style.width = progress + '%';
+      }
+
+      // Add event listeners
+      audioPlayer.addEventListener('play', function () {
+        musicStatus.textContent = '';
+        progressBarInterval = setInterval(updateProgressBar, 10); // Update every 10ms
+      });
+
+      audioPlayer.addEventListener('pause', function () {
+        musicStatus.textContent = '';
+        clearInterval(progressBarInterval); // Stop updating when paused
+      });
+
+      audioPlayer.addEventListener('loadedmetadata', function () {
+        progressBar.style.width = '0%';
+      });
+
+      enterButton.addEventListener('click', function () {
+        audioPlayer.play();
+        mainContent.classList.add('visible');
+        enterButton.classList.remove('visible');
+      });
+
+      setTimeout(function () {
+        enterButton.classList.add('visible');
+        enterButton.style.animation = 'fade-in 1s ease-in';
+      }, 1000);
+    });
+  </script>
+
+
+    <style>
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </div>
+</body>
+
+</html>
